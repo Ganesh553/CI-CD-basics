@@ -1,15 +1,15 @@
 pipeline {
   environment {
-    dockerimagename = "vijaylokesh/my-tomcat"
+    dockerimagename = "ganesg9620/my-tomcat"
     registry_url = "https://registry.hub.docker.com"
-    registryCredential = 'my-docker-private-id'
+    registryCredential = 'docker_hub'
     }
     tools {
-        maven 'maven3.8.6'
+        maven 'maven'
     }
     
 	agent {
-     label 'CI-Jenkins-Slave'
+     label 'build_server'
   }
   
   stages {
