@@ -1,0 +1,29 @@
+pipline{
+  environment{
+    crediential = 'dockerhub'
+    }
+  stages{
+    stage("checkout scm"){
+        steps{
+            checkout scm
+        }
+      }
+      stage("Build"){
+      steps{
+        sh 'docker build -t ganesh9620/new:latest .'
+      }
+    }
+    stage("Login"){
+      steps{
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'password', usernameVariable: 'username')]) {
+          sh "docker login -u ${username} -p ${username}"
+        }
+      }
+    }
+    stage("push"){
+      steps{
+        sh 'docker push ganesh9620/new:latest'
+      }
+    }
+  }
+}
