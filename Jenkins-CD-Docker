@@ -1,6 +1,6 @@
 pipeline {
    agent {
-       label 'depoyee_server'
+       label 'depoye_server'
     }
     
     environment {
