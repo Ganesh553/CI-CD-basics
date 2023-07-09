@@ -41,7 +41,7 @@ pipeline {
            image = docker.image(dockerimagename)
            image.pull()
            }
-           sh 'docker run -d -p 8080:8080 --rm --name $container_name  $registry_name/$dockerimagename'
+           sh 'docker run -d -p 9000:8080 --rm --name $container_name  $registry_name/$dockerimagename'
            
          }  
 
